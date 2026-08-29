@@ -38,6 +38,7 @@ StringRef Triple::getArchTypeName(ArchType Kind) {
   case bpfeb:          return "bpfeb";
   case bpfel:          return "bpfel";
   case csky:           return "csky";
+  case cpu0:           return "cpu0";
   case dxil:           return "dxil";
   case hexagon:        return "hexagon";
   case hsail64:        return "hsail64";
@@ -241,6 +242,8 @@ StringRef Triple::getArchTypePrefix(ArchType Kind) {
 
   case ve:          return "ve";
   case csky:        return "csky";
+
+  case cpu0:        return "cpu0";
 
   case loongarch32:
   case loongarch64: return "loongarch";
@@ -486,6 +489,7 @@ Triple::ArchType Triple::getArchTypeForLLVMName(StringRef Name) {
     .Case("loongarch64", loongarch64)
     .Case("dxil", dxil)
     .Case("xtensa", xtensa)
+    .Case("cpu0", cpu0)
     .Default(UnknownArch);
 }
 
@@ -973,6 +977,7 @@ static Triple::ObjectFormatType getDefaultFormat(const Triple &T) {
   case Triple::ve:
   case Triple::xcore:
   case Triple::xtensa:
+  case Triple::cpu0:
     return Triple::ELF;
 
   case Triple::mipsel:
@@ -1681,6 +1686,7 @@ unsigned Triple::getArchPointerBitWidth(llvm::Triple::ArchType Arch) {
   case llvm::Triple::x86:
   case llvm::Triple::xcore:
   case llvm::Triple::xtensa:
+  case llvm::Triple::cpu0:
     return 32;
 
   case llvm::Triple::aarch64:
@@ -1791,6 +1797,7 @@ Triple Triple::get32BitArchVariant() const {
   case Triple::x86:
   case Triple::xcore:
   case Triple::xtensa:
+  case Triple::cpu0:
     // Already 32-bit.
     break;
 
@@ -1842,6 +1849,7 @@ Triple Triple::get64BitArchVariant() const {
   case Triple::tcele:
   case Triple::xcore:
   case Triple::xtensa:
+  case Triple::cpu0:
     T.setArch(UnknownArch);
     break;
 
@@ -1946,6 +1954,7 @@ Triple Triple::getBigEndianArchVariant() const {
   // drop any arch suffixes.
   case Triple::arm:
   case Triple::thumb:
+  case Triple::cpu0:
     T.setArch(UnknownArch);
     break;
 
@@ -2050,6 +2059,7 @@ bool Triple::isLittleEndian() const {
   case Triple::x86_64:
   case Triple::xcore:
   case Triple::xtensa:
+  case Triple::cpu0:
     return true;
   default:
     return false;
