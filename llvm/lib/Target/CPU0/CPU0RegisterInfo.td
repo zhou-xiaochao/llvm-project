@@ -35,7 +35,7 @@ def GP   : CPU0Reg<11, "r11", ["gp"]>;
 def FP   : CPU0Reg<12, "r12", ["fp"]>;
 def SP   : CPU0Reg<13, "r13", ["sp"]>;
 def RA   : CPU0Reg<14, "r14", ["ra"]>;
-def SW   : CPU0Reg<15, "r15", ["sw"]>;
+def STATUS : CPU0Reg<15, "r15", ["status"]>;
 
 //===----------------------------------------------------------------------===//
 //  Register Classes
