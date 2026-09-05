@@ -636,6 +636,7 @@ static Triple::ArchType parseArch(StringRef ArchName) {
                  "dxilv1.4", "dxilv1.5", "dxilv1.6", "dxilv1.7", "dxilv1.8",
                  Triple::dxil)
           .Case("xtensa", Triple::xtensa)
+          .Case("cpu0", Triple::cpu0)
           .Default(Triple::UnknownArch);
 
   // Some architectures require special parsing logic just to compute the
