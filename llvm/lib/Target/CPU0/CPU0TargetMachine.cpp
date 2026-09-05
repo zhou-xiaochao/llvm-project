@@ -24,4 +24,5 @@ CPU0TargetMachine::CPU0TargetMachine(
     : CodeGenTargetMachineImpl(
           T, computeDataLayout(), TT, CPU, FS, Options,
           getEffectiveRelocModel(RM),
-          getEffectiveCodeModel(CM, CodeModel::Small), OL) {}
+          getEffectiveCodeModel(CM, CodeModel::Small), OL),
+          Subtarget(TT, CPU, FS, *this) {}
