@@ -28,4 +28,5 @@ CPU0Subtarget::CPU0Subtarget(
     const TargetMachine &TM)
     : CPU0GenSubtargetInfo(TT, CPU, CPU, FS),
       InstrInfo(initializeSubtargetDependencies(CPU, FS)),
+      TLInfo(TM, *this),
       FrameLowering(*this) {}

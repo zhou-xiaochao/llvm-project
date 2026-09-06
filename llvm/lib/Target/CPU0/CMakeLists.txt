@@ -12,6 +12,7 @@ add_public_tablegen_target(CPU0CommonTableGen)
 add_llvm_target(CPU0CodeGen
   CPU0FrameLowering.cpp
   CPU0InstrInfo.cpp
+  CPU0ISelLowering.cpp
   CPU0RegisterInfo.cpp
   CPU0Subtarget.cpp
   CPU0TargetMachine.cpp
@@ -21,6 +22,7 @@ add_llvm_target(CPU0CodeGen
   Core
   CPU0Desc
   CPU0Info
+  SelectionDAG
   MC
   Support
   Target
